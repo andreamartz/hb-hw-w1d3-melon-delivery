@@ -1,40 +1,37 @@
-print("Day 1")
-the_file = open("um-deliveries-day-1.txt")
-for line in the_file:
-    line = line.rstrip()
-    words = line.split('|')
+def delivery_report(filepath):
+    """Print a delivery report.
+    
+    Takes an input file with delivery data and prints a delivery report.
 
-    melon = words[0]
-    count = words[1]
-    amount = words[2]
+    Argument:
+    filepath: the path to the data file to be read (string)
 
-    print(f"Delivered {count} {melon}s for total of ${amount}")
-the_file.close()
+    There is no return value.
+    """
 
+    day = filepath[-5]
+    print("***********")
+    print(f"Day {day}")
+    print("***********")
 
-print("Day 2")
-the_file = open("um-deliveries-day-2.txt")
-for line in the_file:
-    line = line.rstrip()
-    words = line.split('|')
+    # create a file object from the string passed in as the file path
+    the_file = open(filepath)
 
-    melon = words[0]
-    count = words[0]
-    amount = words[0]
+    # Iterate over each line in the file object
+    for line in the_file:
+        for line in the_file:
+            line = line.rstrip()
+            words = line.split('|')   # Create a list of strings using the 
+                # pipe character ( | ) as a delimiter
 
-    print(f"Delivered {count} {melon}s for total of ${amount}")
-the_file.close()
+            melon, count, amount = words  # unpack the words list into 
+                # individual variables
 
+            print(f"Delivered {count} {melon}s for total of ${amount}")
+            break
 
-print("Day 3")
-the_file = open("um-deliveries-day-3.txt")
-for line in the_file:
-    line = line.rstrip()
-    words = line.split('|')
+    the_file.close()
 
-    melon = words[0]
-    count = words[0]
-    amount = words[0]
-
-    print(f"Delivered {count} {melon}s for total of ${amount}")
-the_file.close()
+delivery_report("um-deliveries-day-1.txt")
+delivery_report("um-deliveries-day-2.txt")
+delivery_report("um-deliveries-day-3.txt")
